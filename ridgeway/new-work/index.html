@@ -95,9 +95,29 @@
   .cta{border-top:1px solid var(--hair);padding:clamp(44px,7vh,80px) 0}
   .cta h2{font-size:clamp(28px,4vw,46px);max-width:18ch}
   .cta p{color:var(--muted);max-width:46ch;margin:16px 0 26px}
-  .btn{display:inline-block;background:var(--accent);color:var(--bg);text-decoration:none;
-    font-family:var(--disp);font-size:15px;padding:14px 30px;border-radius:999px}
-  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--hair)}
+
+  .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;
+    background:color-mix(in oklch,var(--ink) 7%,transparent);backdrop-filter:blur(10px);
+    border:1px solid color-mix(in oklch,var(--ink) 22%,transparent);color:var(--ink);text-decoration:none;
+    font-family:var(--disp);
+    font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:13px;
+    padding:17px 36px;border-radius:999px;cursor:pointer;line-height:1.15;white-space:nowrap;
+    transition:border-color .25s,background .25s,color .25s}
+  .btn:hover{border-color:var(--accent);color:var(--accent);
+    background:color-mix(in oklch,var(--accent) 10%,transparent)}
+  /* The label has to sit above the dot layer, or the dots drift over the text. */
+  .btn .lbl{position:relative;z-index:1}
+  /* Primary reads warmer: the accent tints the glass rather than filling it, so the
+     button still shows the dots instead of hiding them behind a solid colour. */
+  .btn.primary{background:color-mix(in oklch,var(--accent) 18%,transparent);
+    border-color:color-mix(in oklch,var(--accent) 55%,transparent);color:var(--ink)}
+  .btn.primary:hover{background:color-mix(in oklch,var(--accent) 28%,transparent);border-color:var(--accent);color:var(--ink)}
+  /* A button is ~52px tall, so the footer's 88px dot travel would launch them out of
+     the top almost immediately. This keeps the drift inside the pill. */
+  .btn .footfx .dot{animation-name:dotRiseBtn;box-shadow:0 0 7px var(--accent)}
+  @keyframes dotRiseBtn{0%{transform:translateY(0) scale(.35);opacity:0}22%{opacity:.85}
+    72%{opacity:.45}100%{transform:translateY(-44px) scale(.9);opacity:0}}
+  @media(prefers-reduced-motion:reduce){.btn .footfx .dot{animation:none;opacity:.4}}
 
   form{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:640px}
   .field{display:flex;flex-direction:column;gap:6px}.field.wide{grid-column:1/-1}
@@ -141,7 +161,7 @@
     <a class="ncta" href="../contact/" data-magnetic>Request a quote</a>
     <details class="menu">
       <summary aria-label="Menu"><i></i><i></i><i></i></summary>
-      <div class="menupanel"><div class="footfx" aria-hidden="true"><i class="dot" style="left:59.9%;animation-duration:10.2s;animation-delay:-3.7s"></i><i class="dot" style="left:94.5%;animation-duration:8.7s;animation-delay:-6.9s"></i><i class="dot" style="left:67.0%;animation-duration:6.1s;animation-delay:-6.8s"></i><i class="dot" style="left:33.9%;animation-duration:7.2s;animation-delay:-0.7s"></i><i class="dot" style="left:67.7%;animation-duration:9.0s;animation-delay:-6.8s"></i><i class="dot" style="left:36.5%;animation-duration:8.4s;animation-delay:-4.4s"></i><i class="dot" style="left:54.9%;animation-duration:8.9s;animation-delay:-3.2s"></i><i class="dot" style="left:47.8%;animation-duration:8.9s;animation-delay:-5.7s"></i><i class="dot" style="left:65.7%;animation-duration:6.1s;animation-delay:-5.9s"></i><i class="dot" style="left:9.7%;animation-duration:11.8s;animation-delay:-3.3s"></i><i class="dot" style="left:6.2%;animation-duration:7.1s;animation-delay:-2.2s"></i><i class="dot" style="left:44.8%;animation-duration:7.4s;animation-delay:-7.3s"></i></div><a href="../new-work/" aria-current="page">New work</a><a href="../restoration/">Restoration</a><a href="../workshop/">The workshop</a><a href="../contact/">Contact</a></div>
+      <div class="menupanel"><div class="footfx" aria-hidden="true"><i class="dot" style="left:8.8%;animation-duration:12.4s;animation-delay:-5.7s"></i><i class="dot" style="left:60.1%;animation-duration:9.6s;animation-delay:-8.4s"></i><i class="dot" style="left:11.5%;animation-duration:10.6s;animation-delay:-2.9s"></i><i class="dot" style="left:19.1%;animation-duration:11.2s;animation-delay:-1.2s"></i><i class="dot" style="left:85.4%;animation-duration:6.5s;animation-delay:-2.2s"></i><i class="dot" style="left:20.3%;animation-duration:8.4s;animation-delay:-2.3s"></i><i class="dot" style="left:33.8%;animation-duration:6.3s;animation-delay:-0.6s"></i><i class="dot" style="left:50.4%;animation-duration:9.9s;animation-delay:-2.3s"></i><i class="dot" style="left:32.2%;animation-duration:9.7s;animation-delay:-6.6s"></i><i class="dot" style="left:22.3%;animation-duration:7.2s;animation-delay:-4.4s"></i><i class="dot" style="left:45.8%;animation-duration:9.2s;animation-delay:-3.8s"></i><i class="dot" style="left:94.8%;animation-duration:10.0s;animation-delay:-4.9s"></i></div><a href="../new-work/" aria-current="page">New work</a><a href="../restoration/">Restoration</a><a href="../workshop/">The workshop</a><a href="../contact/">Contact</a></div>
     </details>
   </div>
 </div></nav>
@@ -174,13 +194,13 @@
 
 <section class="cta"><div class="wrap">
   <h2>Send us the opening and we will draw something to it.</h2><p>A photograph and three measurements is enough to start. There is no charge for the drawing.</p>
-  <a class="btn" href="../contact/">Request a quote</a>
-  <a class="btn ghost" href="../restoration/" style="margin-left:8px">Restoration work</a>
+  <a class="btn primary" href="../contact/"><span class="footfx" aria-hidden="true"><i class="dot" style="left:29.7%;animation-duration:7.0s;animation-delay:-7.2s"></i><i class="dot" style="left:27.1%;animation-duration:11.7s;animation-delay:-7.4s"></i><i class="dot" style="left:11.9%;animation-duration:10.2s;animation-delay:-8.3s"></i><i class="dot" style="left:79.4%;animation-duration:7.9s;animation-delay:-3.5s"></i><i class="dot" style="left:34.3%;animation-duration:8.7s;animation-delay:-6.9s"></i><i class="dot" style="left:69.9%;animation-duration:12.5s;animation-delay:-7.6s"></i><i class="dot" style="left:14.0%;animation-duration:9.8s;animation-delay:-0.5s"></i><i class="dot" style="left:47.2%;animation-duration:12.0s;animation-delay:-1.0s"></i><i class="dot" style="left:43.3%;animation-duration:6.8s;animation-delay:-0.1s"></i></span><span class="lbl">Request a quote</span></a>
+  <a class="btn ghost" href="../restoration/" style="margin-left:8px"><span class="footfx" aria-hidden="true"><i class="dot" style="left:58.6%;animation-duration:9.9s;animation-delay:-4.2s"></i><i class="dot" style="left:87.7%;animation-duration:12.4s;animation-delay:-1.5s"></i><i class="dot" style="left:64.6%;animation-duration:9.3s;animation-delay:-0.7s"></i><i class="dot" style="left:84.9%;animation-duration:6.8s;animation-delay:-6.0s"></i><i class="dot" style="left:25.8%;animation-duration:9.9s;animation-delay:-3.4s"></i><i class="dot" style="left:43.6%;animation-duration:6.9s;animation-delay:-2.0s"></i><i class="dot" style="left:21.0%;animation-duration:8.0s;animation-delay:-8.0s"></i><i class="dot" style="left:86.9%;animation-duration:11.6s;animation-delay:-4.8s"></i><i class="dot" style="left:28.8%;animation-duration:7.6s;animation-delay:-1.5s"></i></span><span class="lbl">Restoration work</span></a>
 </div></section>
 
 
 <footer>
-  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:26.8%;animation-duration:8.8s;animation-delay:-1.9s"></i><i class="dot" style="left:22.0%;animation-duration:12.9s;animation-delay:-5.6s"></i><i class="dot" style="left:20.7%;animation-duration:7.1s;animation-delay:-0.6s"></i><i class="dot" style="left:47.9%;animation-duration:8.3s;animation-delay:-6.6s"></i><i class="dot" style="left:15.4%;animation-duration:12.3s;animation-delay:-4.3s"></i><i class="dot" style="left:67.1%;animation-duration:11.2s;animation-delay:-7.4s"></i><i class="dot" style="left:54.7%;animation-duration:12.6s;animation-delay:-5.8s"></i><i class="dot" style="left:66.7%;animation-duration:10.2s;animation-delay:-8.5s"></i><i class="dot" style="left:95.6%;animation-duration:8.3s;animation-delay:-4.5s"></i><i class="dot" style="left:73.3%;animation-duration:9.4s;animation-delay:-7.0s"></i><i class="dot" style="left:13.7%;animation-duration:9.9s;animation-delay:-4.9s"></i><i class="dot" style="left:24.3%;animation-duration:8.5s;animation-delay:-4.9s"></i><i class="dot" style="left:34.6%;animation-duration:6.1s;animation-delay:-7.7s"></i><i class="dot" style="left:75.6%;animation-duration:6.4s;animation-delay:-6.6s"></i><i class="dot" style="left:20.6%;animation-duration:6.8s;animation-delay:-6.7s"></i><i class="dot" style="left:55.5%;animation-duration:12.3s;animation-delay:-5.5s"></i><i class="dot" style="left:91.5%;animation-duration:7.7s;animation-delay:-4.4s"></i><i class="dot" style="left:83.2%;animation-duration:8.1s;animation-delay:-6.9s"></i><i class="dot" style="left:25.5%;animation-duration:6.1s;animation-delay:-5.4s"></i><i class="dot" style="left:56.4%;animation-duration:9.4s;animation-delay:-8.9s"></i></div>
+  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:31.6%;animation-duration:6.3s;animation-delay:-4.9s"></i><i class="dot" style="left:40.7%;animation-duration:10.2s;animation-delay:-2.6s"></i><i class="dot" style="left:48.9%;animation-duration:6.5s;animation-delay:-6.5s"></i><i class="dot" style="left:29.4%;animation-duration:6.1s;animation-delay:-7.9s"></i><i class="dot" style="left:22.5%;animation-duration:8.0s;animation-delay:-3.5s"></i><i class="dot" style="left:36.0%;animation-duration:7.5s;animation-delay:-3.0s"></i><i class="dot" style="left:75.8%;animation-duration:11.5s;animation-delay:-5.0s"></i><i class="dot" style="left:81.7%;animation-duration:12.3s;animation-delay:-7.0s"></i><i class="dot" style="left:50.3%;animation-duration:6.1s;animation-delay:-1.7s"></i><i class="dot" style="left:59.0%;animation-duration:7.9s;animation-delay:-8.2s"></i><i class="dot" style="left:82.3%;animation-duration:8.0s;animation-delay:-2.3s"></i><i class="dot" style="left:65.5%;animation-duration:8.9s;animation-delay:-2.6s"></i><i class="dot" style="left:51.5%;animation-duration:11.5s;animation-delay:-7.0s"></i><i class="dot" style="left:67.4%;animation-duration:9.7s;animation-delay:-5.2s"></i><i class="dot" style="left:37.1%;animation-duration:7.4s;animation-delay:-0.6s"></i><i class="dot" style="left:44.0%;animation-duration:12.7s;animation-delay:-5.5s"></i><i class="dot" style="left:46.6%;animation-duration:8.2s;animation-delay:-4.5s"></i><i class="dot" style="left:28.8%;animation-duration:7.6s;animation-delay:-5.6s"></i><i class="dot" style="left:89.9%;animation-duration:7.4s;animation-delay:-0.2s"></i><i class="dot" style="left:56.4%;animation-duration:12.1s;animation-delay:-5.9s"></i></div>
   <div class="wrap fgrid">
     <span class="fwm">RIDGEWAY</span>
     <span>Chippenham · Wiltshire and the Cotswolds</span>

@@ -138,7 +138,29 @@
   .reserve{padding:clamp(110px,16vh,200px) 0;text-align:center}
   .reserve .k{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
   .reserve h2{font-family:var(--disp);font-weight:400;font-size:clamp(44px,8vw,120px);line-height:.94}
-  .reserve .cta{display:inline-block;margin-top:34px;font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:13px;color:var(--bg);background:var(--accent);padding:17px 38px;border-radius:999px;transition:.3s}.reserve .cta:hover{filter:brightness(1.07)}
+
+  .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;
+    background:color-mix(in oklch,var(--ink) 7%,transparent);backdrop-filter:blur(10px);
+    border:1px solid color-mix(in oklch,var(--ink) 22%,transparent);color:var(--ink);text-decoration:none;
+    font-family:var(--disp);
+    font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:13px;
+    padding:17px 36px;border-radius:999px;cursor:pointer;line-height:1.15;white-space:nowrap;
+    transition:border-color .25s,background .25s,color .25s}
+  .btn:hover{border-color:var(--accent);color:var(--accent);
+    background:color-mix(in oklch,var(--accent) 10%,transparent)}
+  /* The label has to sit above the dot layer, or the dots drift over the text. */
+  .btn .lbl{position:relative;z-index:1}
+  /* Primary reads warmer: the accent tints the glass rather than filling it, so the
+     button still shows the dots instead of hiding them behind a solid colour. */
+  .btn.primary{background:color-mix(in oklch,var(--accent) 18%,transparent);
+    border-color:color-mix(in oklch,var(--accent) 55%,transparent);color:var(--ink)}
+  .btn.primary:hover{background:color-mix(in oklch,var(--accent) 28%,transparent);border-color:var(--accent);color:var(--ink)}
+  /* A button is ~52px tall, so the footer's 88px dot travel would launch them out of
+     the top almost immediately. This keeps the drift inside the pill. */
+  .btn .footfx .dot{animation-name:dotRiseBtn;box-shadow:0 0 7px var(--accent)}
+  @keyframes dotRiseBtn{0%{transform:translateY(0) scale(.35);opacity:0}22%{opacity:.85}
+    72%{opacity:.45}100%{transform:translateY(-44px) scale(.9);opacity:0}}
+  @media(prefers-reduced-motion:reduce){.btn .footfx .dot{animation:none;opacity:.4}}
   .hstrip{overflow:hidden;height:100vh;display:flex;align-items:center}
   .htrack{display:flex;gap:18px;padding:0 8vw;will-change:transform}
   .hpanel{position:relative;flex:0 0 62vw;max-width:760px;aspect-ratio:16/10;border-radius:14px;overflow:hidden}
@@ -185,7 +207,7 @@
     <a class="ncta" href="contact/" data-magnetic>Request a quote</a>
     <details class="menu">
       <summary aria-label="Menu"><i></i><i></i><i></i></summary>
-      <div class="menupanel"><div class="footfx" aria-hidden="true"><i class="dot" style="left:70.3%;animation-duration:10.9s;animation-delay:-5.8s"></i><i class="dot" style="left:8.7%;animation-duration:10.7s;animation-delay:-6.5s"></i><i class="dot" style="left:16.2%;animation-duration:9.9s;animation-delay:-5.9s"></i><i class="dot" style="left:7.3%;animation-duration:7.1s;animation-delay:-8.2s"></i><i class="dot" style="left:20.4%;animation-duration:7.6s;animation-delay:-3.2s"></i><i class="dot" style="left:89.1%;animation-duration:12.1s;animation-delay:-2.3s"></i><i class="dot" style="left:6.0%;animation-duration:6.7s;animation-delay:-0.6s"></i><i class="dot" style="left:83.4%;animation-duration:6.9s;animation-delay:-3.9s"></i><i class="dot" style="left:86.5%;animation-duration:8.4s;animation-delay:-7.8s"></i><i class="dot" style="left:48.8%;animation-duration:8.7s;animation-delay:-2.3s"></i><i class="dot" style="left:67.5%;animation-duration:8.9s;animation-delay:-1.3s"></i><i class="dot" style="left:83.6%;animation-duration:6.4s;animation-delay:-2.4s"></i></div><a href="new-work/">New work</a><a href="restoration/">Restoration</a><a href="workshop/">The workshop</a><a href="contact/">Contact</a></div>
+      <div class="menupanel"><div class="footfx" aria-hidden="true"><i class="dot" style="left:13.4%;animation-duration:8.4s;animation-delay:-8.7s"></i><i class="dot" style="left:84.6%;animation-duration:8.4s;animation-delay:-4.0s"></i><i class="dot" style="left:39.9%;animation-duration:9.2s;animation-delay:-1.0s"></i><i class="dot" style="left:40.3%;animation-duration:9.0s;animation-delay:-2.2s"></i><i class="dot" style="left:31.0%;animation-duration:8.6s;animation-delay:-5.7s"></i><i class="dot" style="left:87.2%;animation-duration:6.4s;animation-delay:-4.5s"></i><i class="dot" style="left:43.5%;animation-duration:8.1s;animation-delay:-3.7s"></i><i class="dot" style="left:56.3%;animation-duration:11.5s;animation-delay:-2.8s"></i><i class="dot" style="left:44.1%;animation-duration:12.0s;animation-delay:-6.0s"></i><i class="dot" style="left:37.0%;animation-duration:10.7s;animation-delay:-1.0s"></i><i class="dot" style="left:59.3%;animation-duration:10.3s;animation-delay:-4.1s"></i><i class="dot" style="left:61.2%;animation-duration:12.2s;animation-delay:-6.4s"></i></div><a href="new-work/">New work</a><a href="restoration/">Restoration</a><a href="workshop/">The workshop</a><a href="contact/">Contact</a></div>
     </details>
   </div>
 </div></nav>
@@ -238,12 +260,12 @@
 </div></section>
 
 <section class="blk reserve" id="reserve" data-reveal>
-  <div class="wrap"><div class="k">Chippenham · Wiltshire and the Cotswolds</div><h2>Bring us the drawing.</h2><a class="cta" href="#" data-magnetic>Request a quote</a></div>
+  <div class="wrap"><div class="k">Chippenham · Wiltshire and the Cotswolds</div><h2>Bring us the drawing.</h2><a class="btn primary" href="contact/" data-magnetic><span class="footfx" aria-hidden="true"><i class="dot" style="left:85.7%;animation-duration:8.4s;animation-delay:-0.1s"></i><i class="dot" style="left:94.7%;animation-duration:11.3s;animation-delay:-7.4s"></i><i class="dot" style="left:64.5%;animation-duration:10.0s;animation-delay:-7.3s"></i><i class="dot" style="left:73.2%;animation-duration:12.0s;animation-delay:-4.0s"></i><i class="dot" style="left:55.1%;animation-duration:9.5s;animation-delay:-1.7s"></i><i class="dot" style="left:9.1%;animation-duration:8.4s;animation-delay:-0.0s"></i><i class="dot" style="left:23.0%;animation-duration:6.1s;animation-delay:-5.3s"></i><i class="dot" style="left:85.6%;animation-duration:10.3s;animation-delay:-4.2s"></i><i class="dot" style="left:28.1%;animation-duration:8.9s;animation-delay:-7.8s"></i></span><span class="lbl">Request a quote</span></a></div>
 </section>
 
 
 <footer>
-  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:94.1%;animation-duration:6.9s;animation-delay:-5.2s"></i><i class="dot" style="left:91.2%;animation-duration:6.4s;animation-delay:-4.9s"></i><i class="dot" style="left:16.9%;animation-duration:8.5s;animation-delay:-8.0s"></i><i class="dot" style="left:52.3%;animation-duration:8.0s;animation-delay:-2.4s"></i><i class="dot" style="left:40.6%;animation-duration:10.5s;animation-delay:-0.0s"></i><i class="dot" style="left:16.7%;animation-duration:12.8s;animation-delay:-5.5s"></i><i class="dot" style="left:48.4%;animation-duration:8.6s;animation-delay:-2.9s"></i><i class="dot" style="left:29.1%;animation-duration:11.2s;animation-delay:-3.4s"></i><i class="dot" style="left:19.7%;animation-duration:12.2s;animation-delay:-4.3s"></i><i class="dot" style="left:34.3%;animation-duration:8.1s;animation-delay:-5.0s"></i><i class="dot" style="left:33.6%;animation-duration:8.7s;animation-delay:-6.9s"></i><i class="dot" style="left:60.6%;animation-duration:7.6s;animation-delay:-2.2s"></i><i class="dot" style="left:32.4%;animation-duration:11.3s;animation-delay:-2.0s"></i><i class="dot" style="left:12.7%;animation-duration:10.0s;animation-delay:-7.5s"></i><i class="dot" style="left:51.6%;animation-duration:9.8s;animation-delay:-8.0s"></i><i class="dot" style="left:24.1%;animation-duration:9.7s;animation-delay:-1.5s"></i><i class="dot" style="left:52.9%;animation-duration:7.8s;animation-delay:-4.1s"></i><i class="dot" style="left:87.6%;animation-duration:10.9s;animation-delay:-0.5s"></i><i class="dot" style="left:25.3%;animation-duration:8.1s;animation-delay:-6.3s"></i><i class="dot" style="left:64.9%;animation-duration:7.9s;animation-delay:-5.7s"></i></div>
+  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:94.6%;animation-duration:8.7s;animation-delay:-5.4s"></i><i class="dot" style="left:95.7%;animation-duration:8.0s;animation-delay:-6.8s"></i><i class="dot" style="left:27.5%;animation-duration:6.5s;animation-delay:-8.8s"></i><i class="dot" style="left:27.8%;animation-duration:11.9s;animation-delay:-0.9s"></i><i class="dot" style="left:17.0%;animation-duration:6.2s;animation-delay:-2.0s"></i><i class="dot" style="left:74.4%;animation-duration:6.5s;animation-delay:-5.0s"></i><i class="dot" style="left:76.1%;animation-duration:6.6s;animation-delay:-0.6s"></i><i class="dot" style="left:84.9%;animation-duration:10.5s;animation-delay:-3.1s"></i><i class="dot" style="left:26.5%;animation-duration:10.2s;animation-delay:-1.4s"></i><i class="dot" style="left:88.2%;animation-duration:6.4s;animation-delay:-5.2s"></i><i class="dot" style="left:59.9%;animation-duration:10.2s;animation-delay:-8.7s"></i><i class="dot" style="left:76.7%;animation-duration:12.4s;animation-delay:-0.1s"></i><i class="dot" style="left:29.7%;animation-duration:10.1s;animation-delay:-4.5s"></i><i class="dot" style="left:84.5%;animation-duration:10.4s;animation-delay:-6.4s"></i><i class="dot" style="left:14.9%;animation-duration:8.6s;animation-delay:-2.9s"></i><i class="dot" style="left:21.0%;animation-duration:6.5s;animation-delay:-5.7s"></i><i class="dot" style="left:86.3%;animation-duration:7.9s;animation-delay:-0.0s"></i><i class="dot" style="left:90.9%;animation-duration:8.0s;animation-delay:-6.5s"></i><i class="dot" style="left:26.2%;animation-duration:8.6s;animation-delay:-1.1s"></i><i class="dot" style="left:44.8%;animation-duration:11.1s;animation-delay:-5.1s"></i></div>
   <div class="wrap fgrid">
     <span class="fwm">RIDGEWAY</span>
     <span>Chippenham · Wiltshire and the Cotswolds</span>
