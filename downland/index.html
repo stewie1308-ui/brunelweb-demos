@@ -17,12 +17,14 @@
     background:color-mix(in oklch,var(--bg) 84%,transparent);backdrop-filter:blur(14px)}
   .navin{max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,56px);
     display:flex;align-items:center;justify-content:space-between;gap:20px}
-  /* Over-hero variant: transparent until scrolled, and taller while it floats. */
+  /* Over-hero variant: transparent until scrolled. ONLY the background changes.
+     It used to be taller while floating too (24px padding against 14px), so landing
+     on the home page gave an 81px header and every other page 62px, and the bar
+     jumped 19px as you moved between them. The geometry is now identical
+     everywhere and the background is the single thing that varies. */
   nav.overhero{position:fixed;inset:0 0 auto 0;background:transparent;backdrop-filter:none;border-color:transparent}
-  nav.overhero .navin{padding:24px clamp(20px,4vw,56px)}
   nav.overhero.solid{background:color-mix(in oklch,var(--bg) 84%,transparent);
     backdrop-filter:blur(14px);border-color:var(--hair)}
-  nav.overhero.solid .navin{padding:14px clamp(20px,4vw,56px)}
   .lock{display:flex;align-items:center;gap:11px;text-decoration:none}
   /* One size everywhere. The mark used to shrink 26 to 23 when the bar condensed,
      which meant the scrolled home page and the interior pages never quite agreed and
@@ -224,7 +226,7 @@
 
 
 <footer>
-  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:87.6%;animation-duration:7.3s;animation-delay:-5.2s"></i><i class="dot" style="left:16.3%;animation-duration:10.6s;animation-delay:-1.6s"></i><i class="dot" style="left:80.4%;animation-duration:8.0s;animation-delay:-8.9s"></i><i class="dot" style="left:66.5%;animation-duration:10.6s;animation-delay:-3.6s"></i><i class="dot" style="left:55.9%;animation-duration:8.8s;animation-delay:-5.9s"></i><i class="dot" style="left:10.1%;animation-duration:7.9s;animation-delay:-3.2s"></i><i class="dot" style="left:51.7%;animation-duration:12.5s;animation-delay:-7.3s"></i><i class="dot" style="left:76.4%;animation-duration:7.7s;animation-delay:-1.4s"></i><i class="dot" style="left:26.8%;animation-duration:7.8s;animation-delay:-7.6s"></i><i class="dot" style="left:78.1%;animation-duration:11.2s;animation-delay:-2.0s"></i><i class="dot" style="left:46.5%;animation-duration:6.2s;animation-delay:-3.7s"></i><i class="dot" style="left:81.2%;animation-duration:9.1s;animation-delay:-3.0s"></i><i class="dot" style="left:66.5%;animation-duration:11.1s;animation-delay:-1.2s"></i><i class="dot" style="left:29.9%;animation-duration:7.9s;animation-delay:-3.5s"></i><i class="dot" style="left:29.6%;animation-duration:11.7s;animation-delay:-2.4s"></i><i class="dot" style="left:80.2%;animation-duration:9.6s;animation-delay:-4.6s"></i><i class="dot" style="left:4.6%;animation-duration:6.5s;animation-delay:-2.7s"></i><i class="dot" style="left:21.4%;animation-duration:8.6s;animation-delay:-4.4s"></i><i class="dot" style="left:45.9%;animation-duration:6.8s;animation-delay:-0.3s"></i><i class="dot" style="left:7.9%;animation-duration:12.6s;animation-delay:-8.8s"></i></div>
+  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:44.4%;animation-duration:9.2s;animation-delay:-5.2s"></i><i class="dot" style="left:54.6%;animation-duration:7.8s;animation-delay:-0.6s"></i><i class="dot" style="left:22.2%;animation-duration:7.3s;animation-delay:-5.8s"></i><i class="dot" style="left:37.8%;animation-duration:11.7s;animation-delay:-5.8s"></i><i class="dot" style="left:61.8%;animation-duration:10.3s;animation-delay:-4.8s"></i><i class="dot" style="left:18.0%;animation-duration:10.8s;animation-delay:-3.0s"></i><i class="dot" style="left:57.8%;animation-duration:10.3s;animation-delay:-7.4s"></i><i class="dot" style="left:89.5%;animation-duration:9.8s;animation-delay:-5.1s"></i><i class="dot" style="left:71.5%;animation-duration:10.4s;animation-delay:-7.5s"></i><i class="dot" style="left:75.6%;animation-duration:10.3s;animation-delay:-5.8s"></i><i class="dot" style="left:52.9%;animation-duration:10.3s;animation-delay:-6.8s"></i><i class="dot" style="left:88.6%;animation-duration:10.3s;animation-delay:-5.6s"></i><i class="dot" style="left:81.3%;animation-duration:10.6s;animation-delay:-5.6s"></i><i class="dot" style="left:59.2%;animation-duration:8.2s;animation-delay:-3.3s"></i><i class="dot" style="left:56.2%;animation-duration:8.2s;animation-delay:-1.3s"></i><i class="dot" style="left:40.9%;animation-duration:11.8s;animation-delay:-7.9s"></i><i class="dot" style="left:66.6%;animation-duration:9.6s;animation-delay:-6.4s"></i><i class="dot" style="left:71.2%;animation-duration:11.5s;animation-delay:-1.9s"></i><i class="dot" style="left:31.1%;animation-duration:11.2s;animation-delay:-1.9s"></i><i class="dot" style="left:92.0%;animation-duration:7.4s;animation-delay:-0.7s"></i></div>
   <div class="wrap fgrid">
     <span class="fwm">DOWNLAND</span>
     <span>Marlborough · the Kennet valley · the Downs</span>
