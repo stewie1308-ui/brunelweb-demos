@@ -55,7 +55,9 @@ nav.solid::before{opacity:0}
 
 /* ---- scrub stage (transformation flipbook) ---- */
 .stage{position:relative}
-.stage .pin{position:sticky;top:0;height:100vh;overflow:hidden}
+/* svh rather than vh: on a phone vh grows as the URL bar retracts, which resizes the
+   pinned stage mid-scroll and makes the hero re-crop and appear to zoom. */
+.stage .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 
 /* ---- animated footer FX: aurora glow + drifting dots (theme-aware via --accent) ---- */
