@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KINGSHILL — Dental Clinic</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Implants, cosmetic work and routine care in Old Town, Swindon. We book longer first appointments than most practices, because the talking is the part that changes how the rest of it goes.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:oklch(0.975 0.006 235);--ink:oklch(0.29 0.032 245);--muted:oklch(0.53 0.022 245);--accent:oklch(0.56 0.108 42);--panel:oklch(0.995 0.004 235);
+    --line:color-mix(in oklch,var(--ink) 13%,transparent);
+    --disp:'Newsreader',serif;--sans:'Hanken Grotesk',sans-serif;--r:14px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;
+    font-size:16.5px;line-height:1.62;-webkit-font-smoothing:auto}
+  a{color:inherit}::selection{background:var(--accent);color:#fff}
+  h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.12;letter-spacing:-.012em;margin:0}
+  em{font-style:italic;color:var(--accent)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+  .lab{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .btn{display:inline-block;padding:14px 26px;border-radius:999px;font-size:15px;font-weight:500;
+    text-decoration:none;border:1px solid transparent;transition:.2s;cursor:pointer;font-family:var(--sans)}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{filter:brightness(1.08)}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+  .btn-ghost:hover{border-color:var(--ink)}
+
+  /* ---- nav: a clinic nav carries the phone number, because half the visitors
+     would rather ring than fill anything in ---- */
+  nav{position:sticky;top:0;z-index:50;background:color-mix(in oklch,var(--bg) 88%,transparent);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .navin{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+  .brand{font-family:var(--disp);font-size:21px;letter-spacing:.16em;text-decoration:none}
+  .navlinks{display:flex;gap:26px;font-size:14.5px}
+  .navlinks a{text-decoration:none;color:var(--muted)}.navlinks a:hover{color:var(--ink)}
+  .navtel{font-size:15px;font-weight:500;text-decoration:none;white-space:nowrap}
+
+  /* ---- split hero: content and image side by side, NOT full-bleed. The page starts
+     with an answer rather than an atmosphere. ---- */
+  .hero{padding:clamp(40px,7vh,84px) 0 clamp(30px,5vh,60px)}
+  .herogrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .hero h1{font-size:clamp(34px,4.6vw,58px)}
+  .hero .sub{color:var(--muted);font-size:17.5px;margin:20px 0 28px;max-width:46ch}
+  .herobtns{display:flex;gap:12px;flex-wrap:wrap}
+  .heroimg{aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;box-shadow:0 2px 4px rgba(0,0,0,.05),0 18px 50px rgba(0,0,0,.09)}
+  .heroimg img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ---- trust strip ---- */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}
+  .trustin{display:flex;flex-wrap:wrap;gap:8px 34px;padding:16px 0;font-size:14.5px;color:var(--muted)}
+  .trustin span{display:flex;align-items:center;gap:9px}
+  .trustin span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+
+  section{padding:clamp(52px,8vh,96px) 0}
+  .shead{max-width:52ch;margin-bottom:clamp(26px,4vh,44px)}
+  .shead h2{font-size:clamp(27px,3.4vw,40px)}
+  .shead p{color:var(--muted);margin:14px 0 0}
+
+  /* ---- treatment cards: a grid with prices. Nothing like this exists on the other
+     two demos, and it is the single most-wanted thing on a private clinic site. ---- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;
+    display:flex;flex-direction:column;transition:.2s}
+  .card:hover{border-color:color-mix(in oklch,var(--accent) 45%,transparent);transform:translateY(-2px)}
+  .card h3{font-size:20.5px}
+  .card .from{font-size:14px;font-weight:600;color:var(--accent);margin:8px 0 12px;font-family:var(--sans)}
+  .card p{color:var(--muted);font-size:15.5px;margin:0}
+
+  /* ---- steps ---- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.6vw,32px)}
+  .step .n{font-family:var(--disp);font-size:15px;color:var(--accent);letter-spacing:.08em;margin-bottom:12px}
+  .step h3{font-size:19px;margin-bottom:9px}
+  .step p{color:var(--muted);font-size:15.5px;margin:0}
+  .step{padding-top:18px;border-top:2px solid var(--line)}
+
+  /* ---- gallery: plain and quiet, three rooms ---- */
+  .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .rooms figure{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;
+    box-shadow:0 2px 4px rgba(0,0,0,.05),0 14px 40px rgba(0,0,0,.07)}
+  .rooms img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ---- FAQ, as real disclosure rather than an accordion of nothing ---- */
+  .faq{max-width:760px}
+  .faq details{border-bottom:1px solid var(--line);padding:18px 0}
+  .faq summary{cursor:pointer;font-family:var(--disp);font-size:20px;list-style:none;
+    display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1;flex:none}
+  .faq details[open] summary::after{content:"–"}
+  .faq p{color:var(--muted);margin:12px 0 0;max-width:62ch}
+
+  /* ---- booking: the add-on, shown working ---- */
+  .book{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .bookgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field.wide{grid-column:1/-1}
+  label{font-size:13.5px;font-weight:500;color:var(--muted)}
+  input,select,textarea{font-family:var(--sans);font-size:16px;font-weight:300;color:var(--ink);
+    background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 13px;width:100%}
+  input:focus,select:focus,textarea:focus{outline:2px solid color-mix(in oklch,var(--accent) 55%,transparent);outline-offset:1px;border-color:transparent}
+  textarea{resize:vertical;min-height:88px}
+  .formnote{grid-column:1/-1;font-size:13.5px;color:var(--muted);margin:2px 0 0}
+  .sent{grid-column:1/-1;padding:14px 16px;border-radius:10px;font-size:15px;
+    background:color-mix(in oklch,var(--accent) 12%,transparent);border:1px solid color-mix(in oklch,var(--accent) 35%,transparent)}
+
+  /* ---- footer with the things people actually scroll to the bottom for ---- */
+  footer{padding:clamp(44px,6vh,72px) 0 34px}
+  .fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(24px,4vw,48px)}
+  .fgrid h3{font-size:16px;font-family:var(--sans);font-weight:600;margin-bottom:12px}
+  .hours{list-style:none;padding:0;margin:0;font-size:15px;color:var(--muted)}
+  .hours li{display:flex;justify-content:space-between;gap:16px;padding:5px 0;border-bottom:1px dotted var(--line)}
+  .fbot{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted)}
+  .fbot a{color:var(--accent)}
+  .note{flex-basis:100%;opacity:.85}
+
+  @media(max-width:900px){
+    .herogrid,.bookgrid{grid-template-columns:1fr}
+    .heroimg{aspect-ratio:16/10;order:-1}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .fgrid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:620px){
+    .navlinks{display:none}
+    .cards,.steps,.rooms,.fgrid{grid-template-columns:1fr}
+    form{grid-template-columns:1fr}
+    .rooms figure:nth-child(n+3){display:none}
+  }
+</style></head><body>
+
+<nav><div class="wrap navin">
+  <a class="brand" href="#top">KINGSHILL</a>
+  <div class="navlinks">
+    <a href="#treatments">Treatments</a><a href="#expect">What to expect</a>
+    <a href="#questions">Questions</a><a href="#book">Book</a>
+  </div>
+  <a class="navtel" href="tel:01793496012">01793 496012</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap herogrid">
+  <div>
+    <div class="lab">Private Dental Care · Old Town, Swindon</div>
+    <h1>Dentistry for people who would<br>rather <em>not be here.</em></h1>
+    <p class="sub">Implants, cosmetic work and routine care in Old Town, Swindon. We book longer first appointments than most practices, because the talking is the part that changes how the rest of it goes.</p>
+    <div class="herobtns">
+      <a class="btn btn-primary" href="#book">Book a consultation</a>
+      <a class="btn btn-ghost" href="tel:01793496012">Call the practice</a>
+    </div>
+  </div>
+  <div class="heroimg"><img src="assets/hero.jpg" alt="A treatment room at KINGSHILL" fetchpriority="high"></div>
+</div></header>
+
+<div class="trust"><div class="wrap trustin">
+  <span>GDC registered clinicians</span>
+  <span>Evening appointments</span>
+  <span>0% finance over 12 months</span>
+  <span>Nervous patients welcome</span>
+</div></div>
+
+<section id="treatments"><div class="wrap">
+  <div class="shead"><div class="lab">Treatments</div>
+    <h2>Prices published, before you ask for them.</h2>
+    <p>Every figure below is what the treatment starts at, not an average. Your written plan gives the exact cost before anything is booked.</p></div>
+  <div class="cards">
+    <article class="card"><h3>Dental implants</h3><div class="from">from £2,400</div><p>A single titanium implant and crown, placed and restored in the same practice so nobody hands you between two.</p></article>
+    <article class="card"><h3>Invisalign</h3><div class="from">from £2,900</div><p>Clear aligners with a digital scan at the consultation, so you see the projected result before committing to it.</p></article>
+    <article class="card"><h3>Composite bonding</h3><div class="from">from £250 per tooth</div><p>Chips, gaps and worn edges rebuilt in a single visit. No drilling of healthy tooth.</p></article>
+    <article class="card"><h3>Crowns and veneers</h3><div class="from">from £750</div><p>Ceramic work shade-matched in the chair rather than guessed from a chart.</p></article>
+    <article class="card"><h3>Hygienist</h3><div class="from">from £75</div><p>Thirty minutes with an airflow polish. Bookable without seeing a dentist first.</p></article>
+    <article class="card"><h3>Emergency appointments</h3><div class="from">£95 assessment</div><p>Same-day slots held back every morning for pain. Phone before 9am.</p></article>
+  </div>
+</div></section>
+
+<section id="expect" style="padding-top:0"><div class="wrap">
+  <div class="shead"><div class="lab">What to expect</div><h2>Four appointments, and no surprises in any of them.</h2></div>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><h3>A long first appointment</h3><p>Forty-five minutes. We look, we scan, and you tell us what has actually been bothering you. Nothing is decided in it.</p></div>
+    <div class="step"><div class="n">02</div><h3>A written plan and a price</h3><p>Options with costs against each, in writing, before anything is booked. Including the option of doing nothing yet.</p></div>
+    <div class="step"><div class="n">03</div><h3>Treatment, at your pace</h3><p>Split across visits if that suits you better. You can stop and rethink at any point without losing what you have paid.</p></div>
+    <div class="step"><div class="n">04</div><h3>Aftercare that is included</h3><p>Reviews after implant and cosmetic work are part of the price, not a separate appointment.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap rooms">
+  <figure><img src="assets/g1.jpg" alt="Inside KINGSHILL" loading="lazy"></figure>
+  <figure><img src="assets/g2.jpg" alt="Inside KINGSHILL" loading="lazy"></figure>
+  <figure><img src="assets/g3.jpg" alt="Inside KINGSHILL" loading="lazy"></figure>
+</div></section>
+
+<section id="questions"><div class="wrap">
+  <div class="shead"><div class="lab">Common questions</div><h2>The things people ring up to ask.</h2></div>
+  <div class="faq">
+    <details open><summary>I have not been to a dentist in years.</summary><p>That is most of our new patients, and it is not a conversation you need to brace for. The first appointment is an assessment, not a lecture, and nothing gets done to you on the day unless you ask for it.</p></details>
+    <details><summary>How do people usually pay for this?</summary><p>Routine work is paid on the day. Larger treatment plans are usually spread over twelve months at 0% through our finance provider, subject to status. We will show you the monthly figure alongside the total before you decide.</p></details>
+    <details><summary>Do you take NHS patients?</summary><p>No, we are a wholly private practice. We are straightforward about that up front because it is the first thing worth knowing, and we will tell you if what you need would be better done on the NHS elsewhere.</p></details>
+    <details><summary>What if I am in pain today?</summary><p>Phone before 9am and we will find you a slot the same day. The assessment is £95 and comes off the cost of whatever treatment follows.</p></details>
+  </div>
+</div></section>
+
+<section class="book" id="book"><div class="wrap bookgrid">
+  <div>
+    <div class="lab">Book a consultation</div>
+    <h2 style="font-size:clamp(27px,3.4vw,40px)">Ask for a time and we will ring you back.</h2>
+    <p style="color:var(--muted);max-width:44ch">Tell us roughly what you are after and when suits. We will phone back to confirm a time, usually the same working day.</p>
+    <p style="color:var(--muted);font-size:15px">Or phone the practice directly on
+      <a href="tel:01793496012" style="color:var(--accent);font-weight:500">01793 496012</a>.</p>
+  </div>
+  <form id="bookform" novalidate>
+    <div class="field"><label for="bn">Your name</label><input id="bn" name="name" autocomplete="name" required></div>
+    <div class="field"><label for="bp">Phone</label><input id="bp" name="phone" type="tel" autocomplete="tel" required></div>
+    <div class="field wide"><label for="bt">What are you interested in?</label>
+      <select id="bt" name="treatment"><option>Not sure yet</option><option>Implants</option><option>Invisalign</option><option>Composite bonding</option><option>Crowns or veneers</option><option>Hygienist</option><option>In pain today</option></select></div>
+    <div class="field wide"><label for="bw">When suits you?</label>
+      <textarea id="bw" name="when" placeholder="Weekday evenings, or Saturday mornings, that sort of thing"></textarea></div>
+    <div class="field wide"><button class="btn btn-primary" type="submit" style="width:100%">Book a consultation</button></div>
+    <p class="formnote">We use your number to arrange the appointment and nothing else.</p>
+  </form>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <h3>KINGSHILL</h3>
+      <p style="color:var(--muted);margin:0">Old Town, Swindon, Wiltshire</p>
+      <p style="margin:10px 0 0"><a href="tel:01793496012" style="color:var(--accent);font-weight:500;text-decoration:none">01793 496012</a></p>
+    </div>
+    <div><h3>Opening hours</h3>
+      <ul class="hours"><li><span>Monday to Thursday</span><span>8.00am – 7.00pm</span></li><li><span>Friday</span><span>8.00am – 4.00pm</span></li><li><span>Saturday</span><span>9.00am – 1.00pm, one in two</span></li><li><span>Sunday</span><span>Closed</span></li></ul></div>
+    <div><h3>Treatments</h3>
+      <ul class="hours" style="list-style:none"><li style="border:0;padding:3px 0"><span>Dental implants</span></li><li style="border:0;padding:3px 0"><span>Invisalign</span></li><li style="border:0;padding:3px 0"><span>Composite bonding</span></li><li style="border:0;padding:3px 0"><span>Crowns and veneers</span></li></ul></div>
+  </div>
+  <div class="fbot">
+    <span>&copy; 2026 KINGSHILL</span>
+    <a href="https://brunelweb.co.uk">Site by Brunel Web</a>
+    <span class="note">Concept site. Kingshill Dental is a fictional business, built to show what this kind of site looks like. The phone number is an Ofcom range reserved for fiction and does not connect.</span>
+  </div>
+</div></footer>
+
+<script>
+  // The booking form is a demo, so it must not pretend to send anything. It validates,
+  // confirms, and says plainly that nothing was submitted. A fake success message on a
+  // fictional clinic is exactly the kind of thing someone would take at face value.
+  var f=document.getElementById('bookform');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=f.name.value.trim(), phone=f.phone.value.trim();
+    if(!name||!phone){ (name?f.phone:f.name).focus(); return; }
+    if(f.querySelector('.sent'))return;
+    var d=document.createElement('div'); d.className='sent'; d.setAttribute('role','status');
+    d.innerHTML='<strong>Thank you, '+name.replace(/[<>&]/g,'')+'.</strong> On the real site this would reach the practice inbox and you would get a call back. This is a demonstration, so nothing has been sent.';
+    f.appendChild(d);
+    f.querySelector('button[type=submit]').disabled=true;
+  });
+</script>
+</body></html>
