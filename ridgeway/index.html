@@ -17,12 +17,14 @@
     background:color-mix(in oklch,var(--bg) 84%,transparent);backdrop-filter:blur(14px)}
   .navin{max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,56px);
     display:flex;align-items:center;justify-content:space-between;gap:20px}
-  /* Over-hero variant: transparent until scrolled, and taller while it floats. */
+  /* Over-hero variant: transparent until scrolled. ONLY the background changes.
+     It used to be taller while floating too (24px padding against 14px), so landing
+     on the home page gave an 81px header and every other page 62px, and the bar
+     jumped 19px as you moved between them. The geometry is now identical
+     everywhere and the background is the single thing that varies. */
   nav.overhero{position:fixed;inset:0 0 auto 0;background:transparent;backdrop-filter:none;border-color:transparent}
-  nav.overhero .navin{padding:24px clamp(20px,4vw,56px)}
   nav.overhero.solid{background:color-mix(in oklch,var(--bg) 84%,transparent);
     backdrop-filter:blur(14px);border-color:var(--hair)}
-  nav.overhero.solid .navin{padding:14px clamp(20px,4vw,56px)}
   .lock{display:flex;align-items:center;gap:11px;text-decoration:none}
   /* One size everywhere. The mark used to shrink 26 to 23 when the bar condensed,
      which meant the scrolled home page and the interior pages never quite agreed and
@@ -212,7 +214,7 @@
 
 
 <footer>
-  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:35.9%;animation-duration:9.6s;animation-delay:-6.9s"></i><i class="dot" style="left:49.7%;animation-duration:11.9s;animation-delay:-8.1s"></i><i class="dot" style="left:75.6%;animation-duration:10.7s;animation-delay:-7.3s"></i><i class="dot" style="left:26.5%;animation-duration:12.6s;animation-delay:-2.4s"></i><i class="dot" style="left:22.3%;animation-duration:6.6s;animation-delay:-1.5s"></i><i class="dot" style="left:18.5%;animation-duration:12.4s;animation-delay:-5.6s"></i><i class="dot" style="left:86.8%;animation-duration:8.7s;animation-delay:-8.0s"></i><i class="dot" style="left:57.0%;animation-duration:6.4s;animation-delay:-8.8s"></i><i class="dot" style="left:79.4%;animation-duration:6.4s;animation-delay:-8.3s"></i><i class="dot" style="left:15.1%;animation-duration:7.9s;animation-delay:-5.8s"></i><i class="dot" style="left:83.0%;animation-duration:7.7s;animation-delay:-8.7s"></i><i class="dot" style="left:90.7%;animation-duration:11.2s;animation-delay:-6.3s"></i><i class="dot" style="left:69.3%;animation-duration:12.1s;animation-delay:-8.5s"></i><i class="dot" style="left:22.3%;animation-duration:10.3s;animation-delay:-6.3s"></i><i class="dot" style="left:37.7%;animation-duration:6.5s;animation-delay:-2.9s"></i><i class="dot" style="left:36.6%;animation-duration:11.9s;animation-delay:-0.8s"></i><i class="dot" style="left:34.3%;animation-duration:11.6s;animation-delay:-7.9s"></i><i class="dot" style="left:32.0%;animation-duration:7.6s;animation-delay:-8.0s"></i><i class="dot" style="left:35.8%;animation-duration:8.2s;animation-delay:-2.8s"></i><i class="dot" style="left:35.5%;animation-duration:8.3s;animation-delay:-5.8s"></i></div>
+  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:32.2%;animation-duration:9.4s;animation-delay:-7.3s"></i><i class="dot" style="left:18.2%;animation-duration:10.0s;animation-delay:-8.5s"></i><i class="dot" style="left:70.2%;animation-duration:10.4s;animation-delay:-0.3s"></i><i class="dot" style="left:4.0%;animation-duration:12.1s;animation-delay:-7.8s"></i><i class="dot" style="left:71.2%;animation-duration:7.6s;animation-delay:-4.4s"></i><i class="dot" style="left:83.5%;animation-duration:11.1s;animation-delay:-6.8s"></i><i class="dot" style="left:59.8%;animation-duration:12.9s;animation-delay:-8.5s"></i><i class="dot" style="left:21.2%;animation-duration:8.2s;animation-delay:-7.5s"></i><i class="dot" style="left:12.7%;animation-duration:11.7s;animation-delay:-3.7s"></i><i class="dot" style="left:75.8%;animation-duration:7.3s;animation-delay:-7.1s"></i><i class="dot" style="left:13.1%;animation-duration:11.7s;animation-delay:-8.7s"></i><i class="dot" style="left:76.0%;animation-duration:12.0s;animation-delay:-2.1s"></i><i class="dot" style="left:7.5%;animation-duration:9.4s;animation-delay:-6.1s"></i><i class="dot" style="left:84.7%;animation-duration:11.7s;animation-delay:-3.0s"></i><i class="dot" style="left:32.6%;animation-duration:9.0s;animation-delay:-2.1s"></i><i class="dot" style="left:34.8%;animation-duration:11.2s;animation-delay:-4.7s"></i><i class="dot" style="left:45.5%;animation-duration:7.4s;animation-delay:-3.6s"></i><i class="dot" style="left:53.3%;animation-duration:8.3s;animation-delay:-1.6s"></i><i class="dot" style="left:53.9%;animation-duration:10.1s;animation-delay:-5.6s"></i><i class="dot" style="left:55.7%;animation-duration:12.8s;animation-delay:-3.6s"></i></div>
   <div class="wrap fgrid">
     <span class="fwm">RIDGEWAY</span>
     <span>Chippenham · Wiltshire and the Cotswolds</span>
