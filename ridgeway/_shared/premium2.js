@@ -66,12 +66,32 @@
     io.unobserve(t);
   }});},{rootMargin:'0px 0px -12% 0px',threshold:.15});
 
-  // Splitting into lines MEASURES the text, so it has to wait for the webfont.
-  // Split against the fallback face and every word wraps onto its own line, which
-  // turns a two-line thesis into a nine-line stack. Observe only after splitting,
-  // so a section cannot intersect while it still has no .split-line children.
-  const ready=(D.fonts&&D.fonts.ready)?D.fonts.ready:Promise.resolve();
-  ready.then(()=>{splitAll();D.querySelectorAll('[data-reveal],[data-split]').forEach(n=>io.observe(n));});
+  // Splitting into lines MEASURES the text, so it has to wait for the display webfont.
+  // Split against the fallback face and every word wraps onto its own line, turning a
+  // two-line thesis into an eight-line stack that overflows the page.
+  //
+  // document.fonts.ready ALONE IS NOT ENOUGH. It resolves when nothing is pending at
+  // that instant, which can be before the browser has even begun fetching a face it
+  // has not needed yet, so it can report "loaded" while the heading is still set in
+  // the fallback. fonts.load() for the heading's own computed spec is what actually
+  // guarantees that face is resolved. Two frames after that, layout has settled.
+  // Timers, never requestAnimationFrame: rAF is suspended while a page is hidden, so
+  // waiting on it means a site opened in a BACKGROUND TAB never splits and never
+  // reveals. setTimeout still fires when hidden (throttled, but it fires).
+  const wait=(ms)=>new Promise(r=>setTimeout(r,ms));
+  const displayFace=()=>{
+    const probe=D.querySelector('.thesis h2,.reserve h2,.feat h3');
+    if(!probe||!D.fonts||!D.fonts.load)return Promise.resolve();
+    const cs=getComputedStyle(probe);
+    return D.fonts.load(`${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`);
+  };
+  const fontsSettled=((D.fonts&&D.fonts.ready)?D.fonts.ready:Promise.resolve())
+    .then(displayFace).then(()=>wait(60)).catch(()=>{});
+  // Hard fallback: a font that never resolves must not leave the page unrevealed.
+  Promise.race([fontsSettled,wait(2500)]).then(()=>{
+    splitAll();
+    D.querySelectorAll('[data-reveal],[data-split]').forEach(n=>io.observe(n));
+  });
 
   // ---- magnetic buttons ----
   if(matchMedia('(hover:hover)').matches && !reduce){
