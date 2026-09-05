@@ -66,7 +66,27 @@
   .sent{grid-column:1/-1;padding:14px 16px;border-radius:9px;font-size:15px;
     background:color-mix(in oklch,var(--accent) 16%,transparent);border:1px solid var(--accent)}
 
-  footer{border-top:1px solid var(--hair);padding:40px 0 30px;margin-top:clamp(30px,5vh,60px)}
+  /* ---- animated footer, matched to the home page ----
+     Lifted from the engine so interior pages end the same way the home page does.
+     Two deliberate differences: the dots are emitted as static HTML at build time
+     rather than injected by script, so the footer still animates with JavaScript
+     off, and the whole thing stops under prefers-reduced-motion, which the engine
+     version does not honour. */
+  footer{position:relative;overflow:hidden;border-top:1px solid var(--hair);
+    padding:clamp(52px,8vh,86px) 0 34px;margin-top:clamp(30px,5vh,60px);min-height:240px;
+    display:flex;align-items:flex-end}
+  footer>*{position:relative;z-index:1;width:100%}
+  .footfx{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .footfx .aurora{position:absolute;left:-15%;right:-15%;bottom:-70%;height:230%;
+    background:radial-gradient(46% 64% at 28% 100%,var(--accent),transparent 66%),
+               radial-gradient(40% 56% at 72% 100%,var(--accent),transparent 66%);
+    filter:blur(52px);opacity:.5;animation:auroraDrift 16s ease-in-out infinite}
+  @keyframes auroraDrift{0%,100%{transform:translateX(-4%) scaleY(1)}50%{transform:translateX(4%) scaleY(1.18)}}
+  .footfx .dot{position:absolute;bottom:6px;width:4px;height:4px;border-radius:50%;
+    background:var(--accent);opacity:0;box-shadow:0 0 10px var(--accent);animation:dotRise linear infinite}
+  @keyframes dotRise{0%{transform:translateY(0) scale(.4);opacity:0}18%{opacity:.9}80%{opacity:.55}
+    100%{transform:translateY(-88px) scale(1);opacity:0}}
+  @media(prefers-reduced-motion:reduce){.footfx .aurora,.footfx .dot{animation:none}.footfx .dot{opacity:.5}}
   .fgrid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted)}
   .fgrid a{color:var(--accent)}
   .fwm{font-family:var(--disp);letter-spacing:.3em;color:var(--ink)}
@@ -123,10 +143,13 @@
 </div></section>
 
 
-<footer><div class="wrap fgrid">
-  <span class="fwm">RIDGEWAY</span>
-  <span>Chippenham · Wiltshire and the Cotswolds</span>
-  <a href="https://brunelweb.co.uk">Site by Brunel Web</a>
-  <span class="note">Concept site. Ridgeway Stone is a fictional business, built to show what this kind of site looks like.</span>
-</div></footer>
+<footer>
+  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:63.4%;animation-duration:10.6s;animation-delay:-4.3s"></i><i class="dot" style="left:44.1%;animation-duration:11.7s;animation-delay:-0.8s"></i><i class="dot" style="left:33.4%;animation-duration:8.9s;animation-delay:-8.8s"></i><i class="dot" style="left:10.8%;animation-duration:11.1s;animation-delay:-5.8s"></i><i class="dot" style="left:15.7%;animation-duration:12.1s;animation-delay:-4.3s"></i><i class="dot" style="left:72.1%;animation-duration:10.7s;animation-delay:-2.7s"></i><i class="dot" style="left:62.5%;animation-duration:11.9s;animation-delay:-2.0s"></i><i class="dot" style="left:68.9%;animation-duration:8.4s;animation-delay:-7.8s"></i><i class="dot" style="left:65.7%;animation-duration:10.5s;animation-delay:-6.3s"></i><i class="dot" style="left:27.4%;animation-duration:8.8s;animation-delay:-8.2s"></i><i class="dot" style="left:24.0%;animation-duration:12.0s;animation-delay:-5.3s"></i><i class="dot" style="left:36.9%;animation-duration:11.7s;animation-delay:-6.0s"></i><i class="dot" style="left:27.4%;animation-duration:10.3s;animation-delay:-6.9s"></i><i class="dot" style="left:17.9%;animation-duration:6.2s;animation-delay:-2.4s"></i><i class="dot" style="left:20.0%;animation-duration:7.4s;animation-delay:-7.9s"></i><i class="dot" style="left:10.7%;animation-duration:7.7s;animation-delay:-8.0s"></i><i class="dot" style="left:33.9%;animation-duration:6.9s;animation-delay:-6.8s"></i><i class="dot" style="left:20.5%;animation-duration:9.5s;animation-delay:-0.8s"></i><i class="dot" style="left:35.6%;animation-duration:8.7s;animation-delay:-1.7s"></i><i class="dot" style="left:17.7%;animation-duration:12.4s;animation-delay:-5.9s"></i></div>
+  <div class="wrap fgrid">
+    <span class="fwm">RIDGEWAY</span>
+    <span>Chippenham · Wiltshire and the Cotswolds</span>
+    <a href="https://brunelweb.co.uk">Site by Brunel Web</a>
+    <span class="note">Concept site. Ridgeway Stone is a fictional business, built to show what this kind of site looks like.</span>
+  </div>
+</footer>
 </body></html>
