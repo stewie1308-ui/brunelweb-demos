@@ -137,7 +137,29 @@
   .reserve{padding:clamp(110px,16vh,200px) 0;text-align:center}
   .reserve .k{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
   .reserve h2{font-family:var(--disp);font-weight:500;font-size:clamp(44px,8vw,120px);line-height:.94}
-  .reserve .cta{display:inline-block;margin-top:34px;font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:13px;color:var(--bg);background:var(--accent);padding:17px 38px;border-radius:999px;transition:.3s}.reserve .cta:hover{filter:brightness(1.07)}
+
+  .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;
+    background:color-mix(in oklch,var(--ink) 7%,transparent);backdrop-filter:blur(10px);
+    border:1px solid color-mix(in oklch,var(--ink) 22%,transparent);color:var(--ink);text-decoration:none;
+    font-family:var(--disp);
+    font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:13px;
+    padding:17px 36px;border-radius:999px;cursor:pointer;line-height:1.15;white-space:nowrap;
+    transition:border-color .25s,background .25s,color .25s}
+  .btn:hover{border-color:var(--accent);color:var(--accent);
+    background:color-mix(in oklch,var(--accent) 10%,transparent)}
+  /* The label has to sit above the dot layer, or the dots drift over the text. */
+  .btn .lbl{position:relative;z-index:1}
+  /* Primary reads warmer: the accent tints the glass rather than filling it, so the
+     button still shows the dots instead of hiding them behind a solid colour. */
+  .btn.primary{background:color-mix(in oklch,var(--accent) 18%,transparent);
+    border-color:color-mix(in oklch,var(--accent) 55%,transparent);color:var(--ink)}
+  .btn.primary:hover{background:color-mix(in oklch,var(--accent) 28%,transparent);border-color:var(--accent);color:var(--ink)}
+  /* A button is ~52px tall, so the footer's 88px dot travel would launch them out of
+     the top almost immediately. This keeps the drift inside the pill. */
+  .btn .footfx .dot{animation-name:dotRiseBtn;box-shadow:0 0 7px var(--accent)}
+  @keyframes dotRiseBtn{0%{transform:translateY(0) scale(.35);opacity:0}22%{opacity:.85}
+    72%{opacity:.45}100%{transform:translateY(-44px) scale(.9);opacity:0}}
+  @media(prefers-reduced-motion:reduce){.btn .footfx .dot{animation:none;opacity:.4}}
   .hstrip{overflow:hidden;height:100vh;display:flex;align-items:center}
   .htrack{display:flex;gap:18px;padding:0 8vw;will-change:transform}
   .hpanel{position:relative;flex:0 0 62vw;max-width:760px;aspect-ratio:16/10;border-radius:14px;overflow:hidden}
@@ -247,12 +269,12 @@
 </div></section>
 
 <section class="blk reserve" id="reserve" data-reveal>
-  <div class="wrap"><div class="k">Marlborough · the Kennet valley · the Downs</div><h2>Walk the site with us.</h2><a class="cta" href="#" data-magnetic>Book a site visit</a></div>
+  <div class="wrap"><div class="k">Marlborough · the Kennet valley · the Downs</div><h2>Walk the site with us.</h2><a class="btn primary" href="#" data-magnetic><span class="footfx" aria-hidden="true"><i class="dot" style="left:66.2%;animation-duration:12.3s;animation-delay:-8.7s"></i><i class="dot" style="left:39.8%;animation-duration:12.6s;animation-delay:-4.0s"></i><i class="dot" style="left:35.7%;animation-duration:7.3s;animation-delay:-5.3s"></i><i class="dot" style="left:84.0%;animation-duration:10.3s;animation-delay:-5.8s"></i><i class="dot" style="left:69.7%;animation-duration:7.7s;animation-delay:-6.6s"></i><i class="dot" style="left:20.3%;animation-duration:8.1s;animation-delay:-3.3s"></i><i class="dot" style="left:41.7%;animation-duration:7.5s;animation-delay:-1.0s"></i><i class="dot" style="left:57.1%;animation-duration:10.6s;animation-delay:-7.5s"></i><i class="dot" style="left:74.3%;animation-duration:11.8s;animation-delay:-3.7s"></i></span><span class="lbl">Book a site visit</span></a></div>
 </section>
 
 
 <footer>
-  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:78.0%;animation-duration:10.4s;animation-delay:-5.1s"></i><i class="dot" style="left:67.7%;animation-duration:6.6s;animation-delay:-4.8s"></i><i class="dot" style="left:46.2%;animation-duration:11.4s;animation-delay:-4.1s"></i><i class="dot" style="left:45.1%;animation-duration:12.9s;animation-delay:-7.7s"></i><i class="dot" style="left:54.7%;animation-duration:9.1s;animation-delay:-1.2s"></i><i class="dot" style="left:77.2%;animation-duration:6.9s;animation-delay:-2.2s"></i><i class="dot" style="left:89.9%;animation-duration:8.1s;animation-delay:-5.1s"></i><i class="dot" style="left:65.9%;animation-duration:12.7s;animation-delay:-4.4s"></i><i class="dot" style="left:66.4%;animation-duration:10.3s;animation-delay:-3.2s"></i><i class="dot" style="left:49.6%;animation-duration:7.2s;animation-delay:-0.4s"></i><i class="dot" style="left:40.4%;animation-duration:10.4s;animation-delay:-4.2s"></i><i class="dot" style="left:56.0%;animation-duration:11.6s;animation-delay:-7.9s"></i><i class="dot" style="left:94.9%;animation-duration:10.0s;animation-delay:-7.1s"></i><i class="dot" style="left:77.9%;animation-duration:9.1s;animation-delay:-6.0s"></i><i class="dot" style="left:67.3%;animation-duration:8.9s;animation-delay:-1.7s"></i><i class="dot" style="left:4.7%;animation-duration:6.3s;animation-delay:-6.3s"></i><i class="dot" style="left:18.4%;animation-duration:6.1s;animation-delay:-4.0s"></i><i class="dot" style="left:29.5%;animation-duration:8.8s;animation-delay:-4.8s"></i><i class="dot" style="left:60.4%;animation-duration:12.9s;animation-delay:-0.6s"></i><i class="dot" style="left:65.3%;animation-duration:6.4s;animation-delay:-0.6s"></i></div>
+  <div class="footfx" aria-hidden="true"><div class="aurora"></div><i class="dot" style="left:75.3%;animation-duration:8.3s;animation-delay:-2.3s"></i><i class="dot" style="left:74.4%;animation-duration:6.4s;animation-delay:-1.7s"></i><i class="dot" style="left:51.2%;animation-duration:10.4s;animation-delay:-3.3s"></i><i class="dot" style="left:67.4%;animation-duration:10.6s;animation-delay:-5.8s"></i><i class="dot" style="left:18.7%;animation-duration:9.3s;animation-delay:-4.8s"></i><i class="dot" style="left:80.2%;animation-duration:11.8s;animation-delay:-1.8s"></i><i class="dot" style="left:8.8%;animation-duration:10.8s;animation-delay:-8.4s"></i><i class="dot" style="left:52.3%;animation-duration:6.1s;animation-delay:-3.9s"></i><i class="dot" style="left:93.9%;animation-duration:6.5s;animation-delay:-7.6s"></i><i class="dot" style="left:93.8%;animation-duration:12.7s;animation-delay:-6.8s"></i><i class="dot" style="left:24.7%;animation-duration:8.0s;animation-delay:-7.1s"></i><i class="dot" style="left:12.6%;animation-duration:12.2s;animation-delay:-3.2s"></i><i class="dot" style="left:21.1%;animation-duration:7.7s;animation-delay:-0.6s"></i><i class="dot" style="left:92.0%;animation-duration:6.2s;animation-delay:-2.2s"></i><i class="dot" style="left:85.4%;animation-duration:6.6s;animation-delay:-5.1s"></i><i class="dot" style="left:77.0%;animation-duration:12.2s;animation-delay:-7.6s"></i><i class="dot" style="left:73.3%;animation-duration:12.1s;animation-delay:-4.9s"></i><i class="dot" style="left:88.5%;animation-duration:7.7s;animation-delay:-0.3s"></i><i class="dot" style="left:91.7%;animation-duration:8.8s;animation-delay:-7.4s"></i><i class="dot" style="left:26.6%;animation-duration:11.5s;animation-delay:-6.3s"></i></div>
   <div class="wrap fgrid">
     <span class="fwm">DOWNLAND</span>
     <span>Marlborough · the Kennet valley · the Downs</span>
