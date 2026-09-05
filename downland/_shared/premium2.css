@@ -44,7 +44,12 @@ nav.solid::before{opacity:0}
 /* ---- reveal primitives (transform/opacity only) ---- */
 [data-reveal]{opacity:0;transform:translateY(26px)}
 [data-reveal].in{opacity:1;transform:none;transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)}
-.split-line{display:block;overflow:hidden}
+/* overflow:hidden is what masks each line so it can slide up into place, but a line
+   box sits tight to the text, so it also crops every descender: the tails of g, y, p
+   and j were cut off on every split heading. The padding gives the mask room below
+   the baseline and the equal negative margin takes it back out of the layout, so
+   nothing shifts. */
+.split-line{display:block;overflow:hidden;padding-bottom:.28em;margin-bottom:-.28em}
 .split-line>span{display:block;transform:translateY(110%);transition:transform 1s cubic-bezier(.16,1,.3,1)}
 .split-line.in>span{transform:none}
 
