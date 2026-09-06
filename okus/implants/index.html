@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental implants — OKUS</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Single and multiple dental implants in Old Town, Swindon. Placed and restored in one practice. From £2,400.">
+<link rel="canonical" href="./">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{--bg:oklch(0.975 0.006 235);--ink:oklch(0.29 0.032 245);--muted:oklch(0.53 0.022 245);--accent:oklch(0.56 0.108 42);--panel:oklch(0.995 0.004 235);
+    --line:color-mix(in oklch,var(--ink) 13%,transparent);
+    --disp:'Newsreader',serif;--sans:'Hanken Grotesk',sans-serif;--r:14px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;
+    font-size:16.5px;line-height:1.62;-webkit-font-smoothing:auto}
+  a{color:inherit}::selection{background:var(--accent);color:#fff}
+  h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.12;letter-spacing:-.012em;margin:0}
+  em{font-style:italic;color:var(--accent)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+  .lab{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .btn{display:inline-block;padding:14px 26px;border-radius:999px;font-size:15px;font-weight:500;
+    text-decoration:none;border:1px solid transparent;transition:.2s;cursor:pointer;font-family:var(--sans)}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{filter:brightness(1.08)}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+  .btn-ghost:hover{border-color:var(--ink)}
+
+  /* A clinic nav carries the phone number: half the visitors would rather ring than
+     fill anything in, and the anxious ones especially. */
+  nav{position:sticky;top:0;z-index:50;background:color-mix(in oklch,var(--bg) 88%,transparent);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .navin{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+  .brand{font-family:var(--disp);font-size:21px;letter-spacing:.16em;text-decoration:none;white-space:nowrap}
+  .navlinks{display:flex;gap:26px;font-size:14.5px}
+  .navlinks a{text-decoration:none;color:var(--muted)}
+  .navlinks a:hover{color:var(--ink)}
+  .navlinks a[aria-current]{color:var(--accent)}
+  .navtel{font-size:15px;font-weight:500;text-decoration:none;white-space:nowrap}
+
+  footer{padding:clamp(44px,6vh,72px) 0 34px}
+  .fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(24px,4vw,48px)}
+  .fgrid h3{font-size:16px;font-family:var(--sans);font-weight:600;margin-bottom:12px}
+  .hours{list-style:none;padding:0;margin:0;font-size:15px;color:var(--muted)}
+  .hours li{display:flex;justify-content:space-between;gap:16px;padding:5px 0;border-bottom:1px dotted var(--line)}
+  .fbot{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted)}
+  .fbot a{color:var(--accent)}
+  .note{flex-basis:100%;opacity:.85}
+
+  /* ---- mobile menu ----
+     .navlinks is hidden below 620px, which was fine on a one-page site and is not
+     once there are treatment pages: four pages would be unreachable on a phone, and
+     a phone is how most people find a dentist. Built on <details> so it needs no
+     JavaScript and stays keyboard operable. */
+  .menu{display:none;position:relative}
+  .menu summary{list-style:none;cursor:pointer;width:32px;height:32px;display:flex;
+    flex-direction:column;justify-content:center;gap:5px;padding:0 5px}
+  .menu summary::-webkit-details-marker{display:none}
+  .menu summary i{display:block;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+  .menu[open] summary i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu[open] summary i:nth-child(2){opacity:0}
+  .menu[open] summary i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .menupanel{position:absolute;right:0;top:calc(100% + 12px);min-width:212px;z-index:60;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px;
+    display:flex;flex-direction:column;box-shadow:0 18px 44px rgba(0,0,0,.14)}
+  .menupanel a{padding:11px 14px;border-radius:8px;text-decoration:none;font-size:15px;color:var(--ink)}
+  .menupanel a:hover{background:color-mix(in oklch,var(--ink) 6%,transparent)}
+  .menupanel a[aria-current]{color:var(--accent)}
+
+  @media(max-width:900px){.fgrid{grid-template-columns:1fr 1fr}}
+  @media(max-width:620px){
+    .navlinks{display:none}
+    .menu{display:block}
+    .fgrid{grid-template-columns:1fr}
+    /* No logo mark on this site, so the wordmark is the only branding and must never
+       be hidden. It tightens instead. */
+    .brand{font-size:17px;letter-spacing:.1em}
+    .navtel{font-size:13.5px}
+  }
+
+  .phead{padding:clamp(38px,6vh,72px) 0 clamp(22px,3vh,34px)}
+  .phead h1{font-size:clamp(32px,4.4vw,54px);max-width:17ch}
+  .phead .lede{color:var(--muted);font-size:18px;margin-top:18px;max-width:52ch}
+  .pgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(26px,4vw,56px);align-items:start}
+  .pimg{aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;
+    box-shadow:0 2px 4px rgba(0,0,0,.05),0 18px 50px rgba(0,0,0,.09)}
+  .pimg img{width:100%;height:100%;object-fit:cover;display:block}
+
+  section{padding:0 0 clamp(38px,6vh,64px)}
+  .block{padding:clamp(24px,3.4vh,36px) 0;border-top:1px solid var(--line)}
+  .block h2{font-size:clamp(23px,2.7vw,32px);margin-bottom:12px}
+  .block p{color:var(--muted);margin:0 0 13px;max-width:62ch}
+  .block p:last-child{margin-bottom:0}
+  .block b{color:var(--ink);font-weight:400}
+  ul.ticks{list-style:none;padding:0;margin:14px 0 0;max-width:62ch}
+  ul.ticks li{padding:9px 0 9px 24px;position:relative;color:var(--muted);border-bottom:1px solid var(--line)}
+  ul.ticks li::before{content:"";position:absolute;left:2px;top:17px;width:7px;height:7px;
+    border-radius:50%;background:var(--accent)}
+
+  /* The price panel is the thing people came for. It sits beside the opening copy
+     rather than at the bottom, because scrolling to find a number is what makes
+     private dentistry feel evasive. */
+  .price{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;
+    position:sticky;top:86px}
+  .price .from{font-family:var(--disp);font-size:30px;color:var(--accent);line-height:1.1}
+  .price .unit{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .price dl{margin:18px 0 0;font-size:14.5px}
+  .price dt{color:var(--muted);margin-top:11px}
+  .price dd{margin:2px 0 0;color:var(--ink)}
+  .price .btn{margin-top:20px;width:100%;text-align:center}
+
+  .faq{max-width:760px}
+  .faq details{border-bottom:1px solid var(--line);padding:16px 0}
+  .faq summary{cursor:pointer;font-family:var(--disp);font-size:19px;list-style:none;
+    display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1;flex:none}
+  .faq details[open] summary::after{content:"–"}
+  .faq p{color:var(--muted);margin:11px 0 0;max-width:62ch}
+
+  .cta{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:clamp(40px,6vh,72px) 0}
+  .cta h2{font-size:clamp(26px,3.4vw,40px);max-width:18ch}
+  .cta p{color:var(--muted);max-width:46ch;margin:14px 0 24px}
+  .ctabtns{display:flex;gap:12px;flex-wrap:wrap}
+
+  @media(max-width:900px){.pgrid{grid-template-columns:1fr}.price{position:static}}
+</style></head><body>
+
+<nav><div class="wrap navin">
+  <a class="brand" href="../">OKUS</a>
+  <div class="navlinks"><a href="../implants/" aria-current="page">Implants</a><a href="../invisalign/">Invisalign</a><a href="../cosmetic/">Cosmetic</a><a href="../new-patients/">New patients</a><a href="../#book">Book</a></div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a class="navtel" href="tel:01793496012">01793 496012</a>
+    <details class="menu">
+      <summary aria-label="Menu"><i></i><i></i><i></i></summary>
+      <div class="menupanel"><a href="../implants/" aria-current="page">Implants</a><a href="../invisalign/">Invisalign</a><a href="../cosmetic/">Cosmetic</a><a href="../new-patients/">New patients</a><a href="../#book">Book</a></div>
+    </details>
+  </div>
+</div></nav>
+
+<header class="phead"><div class="wrap">
+  <div class="lab">Dental implants</div>
+  <h1>A replacement root,<br>not a <em>bridge.</em></h1>
+  <p class="lede">A titanium post placed in the jaw, left to fuse, then restored with a crown. Placed and restored here, so nobody hands you between two practices halfway through.</p>
+</div></header>
+
+<section><div class="wrap pgrid">
+  <div>
+    <div class="pimg" style="margin-bottom:26px"><img src="../assets/hero.jpg" alt="A treatment room at Okus Dental"></div>
+    <div class="block">
+      <h2>What actually happens</h2>
+      <p>The post goes into the bone under local anaesthetic, usually in under an hour. Then it is left alone. <b>Osseointegration</b> — the bone growing onto the titanium surface — takes three to six months and cannot be hurried.</p><p>You are not without a tooth in the meantime. A temporary crown or a denture covers the gap while it fuses.</p>
+      
+    </div>
+    <div class="block">
+      <h2>Whether you are a candidate</h2>
+      <p>It depends on how much bone is left, which is why the consultation includes a CT scan rather than a look and a guess. Bone recedes once a tooth has gone, so the longer the gap has been there the more likely a graft is needed.</p><p>Gum disease has to be treated and stable first. <b>An implant placed into active periodontal disease will fail</b>, and we would rather say so than take the money.</p>
+      <ul class="ticks"><li>Enough bone, or a graft to build it</li><li>Healthy, stable gums</li><li>Not currently smoking, ideally — it measurably raises failure rates</li><li>Certain medications need discussing, particularly bisphosphonates</li></ul>
+    </div>
+    <div class="block">
+      <h2>How long they last</h2>
+      <p>Implants are not immortal and anyone promising otherwise is selling. The post itself often lasts decades; the crown on top is a wearing part and may need replacing after ten to fifteen years.</p><p>The thing that decides it is cleaning. Implants do not decay, but the gum and bone around them can become inflamed, and that is what loses them.</p>
+      
+    </div>
+  </div>
+  <aside class="price">
+    <div class="lab" style="margin-bottom:10px">Cost</div>
+    <div class="from">from £2,400</div>
+    <div class="unit">single implant and crown</div>
+    <dl><dt>Consultation and CT scan</dt><dd>£150, deducted from treatment</dd><dt>Bone graft, if needed</dt><dd>from £600</dd><dt>Typical total time</dt><dd>4 to 7 months</dd><dt>Finance</dt><dd>0% over 12 months, subject to status</dd></dl>
+    <a class="btn btn-primary" href="../#book">Book a consultation</a>
+  </aside>
+</div></section>
+
+<section><div class="wrap">
+  <h2 style="font-size:clamp(23px,2.7vw,32px);margin-bottom:18px">Questions people ask about implants</h2>
+  <div class="faq">
+    <details open><summary>Does it hurt?</summary><p>The placement is done under local anaesthetic and most people report it as less uncomfortable than an extraction. Afterwards expect soreness and some swelling for two to three days, manageable with ordinary painkillers. Sedation is available if you would rather not be fully present for it.</p></details>
+    <details><summary>Why is it more than a bridge?</summary><p>A bridge is quicker and cheaper, and for some people it is the right answer. The difference is that a bridge is supported by grinding down the healthy teeth either side, and an implant is not. We will price both and tell you honestly which we would have.</p></details>
+    <details><summary>What if it fails?</summary><p>Roughly one in twenty do not integrate, usually within the first few months. If that happens we remove the post, let the site heal, and replace it at no further cost for the implant itself. That is written into the treatment plan, not a verbal promise.</p></details>
+  </div>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <h2>Start with the scan.</h2><p>The consultation and CT scan is £150, and it comes off the treatment if you go ahead.</p>
+  <div class="ctabtns">
+    <a class="btn btn-primary" href="../#book">Book a consultation</a>
+    <a class="btn btn-ghost" href="tel:01793496012">Call the practice</a>
+  </div>
+</div></section>
+
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <h3>OKUS</h3>
+      <p style="color:var(--muted);margin:0">Old Town, Swindon, Wiltshire</p>
+      <p style="margin:10px 0 0"><a href="tel:01793496012" style="color:var(--accent);font-weight:500;text-decoration:none">01793 496012</a></p>
+    </div>
+    <div><h3>Opening hours</h3>
+      <ul class="hours"><li><span>Monday to Thursday</span><span>8.00am – 7.00pm</span></li><li><span>Friday</span><span>8.00am – 4.00pm</span></li><li><span>Saturday</span><span>9.00am – 1.00pm, one in two</span></li><li><span>Sunday</span><span>Closed</span></li></ul></div>
+    <div><h3>Treatments</h3>
+      <ul class="hours" style="list-style:none"><li style="border:0;padding:3px 0"><a href="../implants/" style="text-decoration:none">Implants</a></li><li style="border:0;padding:3px 0"><a href="../invisalign/" style="text-decoration:none">Invisalign</a></li><li style="border:0;padding:3px 0"><a href="../cosmetic/" style="text-decoration:none">Cosmetic</a></li></ul></div>
+  </div>
+  <div class="fbot">
+    <span>&copy; 2026 OKUS</span>
+    <a href="https://brunelweb.co.uk">Site by Brunel Web</a>
+    <span class="note">Concept site. Okus Dental is a fictional business, built to show what this kind of site looks like. The phone number is an Ofcom range reserved for fiction and does not connect.</span>
+  </div>
+</div></footer>
+</body></html>
